@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar  hideBackButton="true">
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Apply for this job</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+  
+      <ion-item>
+        <ion-label>Job: {{title}}</ion-label>
+      </ion-item>
+  
+      <ion-item *ngFor="let label of item.labels">
+        <ion-label>Label: {{label}}</ion-label>
+      </ion-item>
+  
+      <ion-item *ngIf=item.location>>
+        <ion-label>Location: {{item.location.name | limitTo: 60 }}</ion-label>
+      </ion-item>
+      <ion-item-divider color="light">Contact information</ion-item-divider>
+  
+
+      <form [formGroup]="contactForm">
+        <p *ngIf="contactValidationError" style="color: #ea6153;">Please fill out all the contact details accurately.</p>
+        <p *ngIf="skillValidationError" style="color: #ea6153;">Please fill out all the skills details accurately.</p>
+  
+        <ion-item>
+          <ion-label floating>Candidate Name</ion-label>
+          <ion-input type="text" formControlName="candidate"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label floating>Contact Number</ion-label>
+          <ion-input type="number" formControlName="contact"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label floating>Alternate Number</ion-label>
+          <ion-input type="number" formControlName="altnumber"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label floating>Your location (Mention Your Area Here)</ion-label>
+          <ion-input type="text" formControlName="location"></ion-input>
+        </ion-item>
+      </form>
+  
+      <ion-item-divider color="light">Skills</ion-item-divider>
+
+      <form [formGroup]="skillsForm">
+        <p *ngIf="contactValidationError" style="color: #ea6153;">Please fill out all the contact details accurately.</p>
+        <p *ngIf="skillValidationError" style="color: #ea6153;">Please fill out all the skills details accurately.</p>
+  
+        <ion-item>
+          <ion-label>English</ion-label>
+          <ion-select formControlName="english">
+            <ion-select-option value="excellent">Excellent</ion-select-option>
+            <ion-select-option value="fluent">Fluent</ion-select-option>
+            <ion-select-option value="good">Good</ion-select-option>
+            <ion-select-option value="average">Average</ion-select-option>
+          </ion-select>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Qualification</ion-label>
+          <ion-select formControlName="qualification">
+            <ion-select-option value="10">10th</ion-select-option>
+            <ion-select-option value="12">12th / HSC / Diploma</ion-select-option>
+            <ion-select-option value="graduate">Graduate</ion-select-option>
+            <ion-select-option value="post">Post Graduate</ion-select-option>
+          </ion-select>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Experience</ion-label>
+          <ion-select formControlName="experience">
+            <ion-select-option value="fresh">Fresher</ion-select-option>
+            <ion-select-option value="1">1-2 Years</ion-select-option>
+            <ion-select-option value="2+">2-5 Years</ion-select-option>
+            <ion-select-option value="above">Above 5 Years</ion-select-option>
+          </ion-select>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label floating>Type Skills You Have(eg. Tally. Sip. Oracle. APEX</ion-label>
+          <ion-input type="text" formControlName="skills"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Have You All The Skills Required In Job</ion-label>
+          <ion-checkbox color="dark" checked="false" formControlName="allskills"></ion-checkbox>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label floating>Comment</ion-label>
+          <ion-textarea formControlName="comment"></ion-textarea>
+        </ion-item>
+      </form>
+  
+    </ion-list>
+  
+    <ion-button full color="primary" (click)="send()">Submit</ion-button>
+
+  </ion-content>

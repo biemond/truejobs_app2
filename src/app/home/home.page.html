@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar hideBackButton="true">
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>TrueJobs India</ion-title>
+    <ion-buttons slot="end">
+      <img alt="logo" height="40" src="assets/imgs/logo.png">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #container>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-virtual-scroll [items]="items" approxItemHeight="260px">
+    <ion-card *virtualItem="let item">
+      <div  (click)="itemTapped(item.id, item.title)">
+        <img  *ngIf=item.images [defaultImage]="'assets/imgs/default.png'" height="200px" [lazyLoad]="item.images[0].url" [scrollObservable]="container.ionScroll" />
+        <!-- <ion-img  *ngIf=item.images [src]="item.images[0].url"></ion-img> -->
+        <div class="card-title">{{item.title | limitTo: 60 }}</div>
+        <div class="card-subtitle" *ngIf=item.location>{{item.location.name | limitTo: 40 }}</div>
+      </div>
+      <ion-list>
+        <ion-button *ngFor="let label of item.labels" (click)="labelTapped(label)" shape="round" color="primary" fill="outline" item-left icon-left>
+          <ion-icon name="albums"></ion-icon>
+          {{label | limitTo: 35 }}
+        </ion-button>
+      </ion-list>
+      <ion-item>
+        <ion-datetime disabled displayFormat="MMM DD, YYYY" [(ngModel)]="item.published"></ion-datetime>
+      </ion-item>
+    </ion-card>
+  </ion-virtual-scroll>
+
+</ion-content>

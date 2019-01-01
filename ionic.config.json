@@ -1,0 +1,7 @@
+{
+  "name": "truejobs",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

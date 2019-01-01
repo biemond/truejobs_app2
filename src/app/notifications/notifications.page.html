@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar hideBackButton="true">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Job Notifications</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label>Notification status</ion-label>
+        <ion-checkbox color="dark" [(ngModel)]="subscription" (ionChange)="subscriptionEnabledClicked()" ></ion-checkbox>
+    </ion-item>
+    <ion-item-divider>Notification Job Labels</ion-item-divider>
+    <ion-item *ngFor="let label of labels | orderBy : ['+label']">
+        <ion-label>{{label.label}}</ion-label>
+        <ion-checkbox color="dark" [(ngModel)]="label.push" (ionChange)="checkboxClicked(label)" ></ion-checkbox>
+    </ion-item>
+</ion-content>
+      

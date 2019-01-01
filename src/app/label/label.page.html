@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar hideBackButton="true">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{label}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list approxItemHeight="360px">
+      <ion-card *ngFor="let item of items">
+        <ion-chip (click)="itemTapped(item.id, item.title)">
+            <ion-avatar *ngIf=item.images>
+              <img src="{{item.images[0].url}}">
+            </ion-avatar>
+            <ion-label>{{item.title | limitTo: 60 }}</ion-label>
+        </ion-chip>
+        <ion-item>
+          <ion-datetime disabled displayFormat="MMM DD, YYYY" [(ngModel)]="item.published"></ion-datetime>
+        </ion-item>
+        <ion-item *ngIf=item.location>
+          <ion-icon name="navigate"></ion-icon>
+          {{item.location.name | limitTo: 40 }}
+        </ion-item>
+      </ion-card>
+    </ion-list>
+  </ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar hideBackButton="true">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>About</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+      <p>Developed by Sukhveer Kaur & Edwin Biemond for TrueJobs</p>
+      <p>Current version: {{getVersionNumber()}}</p>
+      <p>Supported on Android 4.4+</p>
+      <p>Supported on IOS 9+ (IPhone & IPad)</p>
+      <p>About us: <b>TRUEJOBS India</b>, a part of ”TRUEJOBS India”, is a pioneer in rendering HR Solutions across the Globe. It is a combined venture of leading and experienced HR Professionals, Engineers & Masters.
+        The company laid its roots from basics of HR Management, thereby bringing a unique approach to cater the requirements of our Clients. We recruit across various verticals for multinational corporations as well as leading business houses. Over the past years, we have been able to shape the careers of numerous professionals. Our strong beliefs and values define what we stand for and determine how we work.
+        Our rigorous screening procedure ensures quality output within specific timeframes. You can completely rely on us to handle even the most critical requirements in shortest possible time, which is of paramount importance in these evolving times. We keep abreast of the rapid developments that take place in the corporate arena and constantly review and upgrade ourselves to tackle these developments in the most effective manner.
+        Our mission is “To mutually build a globally respected Human Capital Solutions Company that provides best-in-class human capital solutions, which will add value to client organisations”.</p>
+      <button ion-item  (click)="openPolicyLink()"><p><b>You can read here our Privacy Policy</b></p></button>
+    </ion-list>
+  </ion-content>
