@@ -9,8 +9,9 @@
 
 ##Publish android
 - ionic cordova build android --prod --release
-- jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore c:/projects/truejobs_app/platforms/android/build/outputs/apk/release/android-release-unsigned.apk suk_keye
-- C:\Users\chaha\AppData\Local\Android\sdk\build-tools\27.0.1\zipalign -v 4 c:/projects/truejobs_app/platforms/android/build/outputs/apk/release/android-release-unsigned.apk c:/projects/truejobs_app/platforms/android/build/outputs/apk/release/truejobs_app-release.apk
+- cd "C:\Program Files\Java\jdk1.8.0_191\bin\"
+- .\jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore C:\projects\truejobs_app2\my-release-key.keystore C:\projects\truejobs_app2\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk suk_keye
+- C:\Users\chaha\AppData\Local\Android\sdk\build-tools\27.0.1\zipalign -v 4 C:\projects\truejobs_app2\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk c:/projects/truejobs_app2/platforms/android/app/build/outputs/apk/release/truejobs_app-release.apk
 
 ##Publish IOS
 - ionic cordova emulate ios -- --buildFlag="-UseModernBuildSystem=0"
