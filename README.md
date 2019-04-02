@@ -17,4 +17,3 @@
 - ionic cordova emulate ios -- --buildFlag="-UseModernBuildSystem=0"
 - rvm use system
 - ionic cordova build ios --prod --release
-

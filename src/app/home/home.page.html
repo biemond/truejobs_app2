@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar hideBackButton="true">
-    <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
+    <ion-buttons slot="start"> 
+        <ion-menu-button>Menu</ion-menu-button>
     </ion-buttons>
     <ion-title>TrueJobs India</ion-title>
     <ion-buttons slot="end">
@@ -10,21 +10,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content #container>
+<ion-content>
 
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..">
     </ion-refresher-content>
   </ion-refresher>
-
+  <div #container>
   <ion-virtual-scroll [items]="items" approxItemHeight="260px">
     <ion-card *virtualItem="let item">
-      <div  (click)="itemTapped(item.id, item.title)">
-        <img  *ngIf=item.images [defaultImage]="'assets/imgs/default.png'" height="200px" [lazyLoad]="item.images[0].url" [scrollObservable]="container.ionScroll" />
-        <!-- <ion-img  *ngIf=item.images [src]="item.images[0].url"></ion-img> -->
+      <ion-item (click)="itemTapped(item.id, item.title)">
+        <ion-thumbnail slot="start">
+          <img src="{{item.images[0].url}}">
+        </ion-thumbnail>
+        <ion-label>
+          <h2><ion-label>{{item.title | limitTo: 60 }}</ion-label></h2>
+          <p><ion-label *ngIf=item.location>{{item.location.name | limitTo: 40 }}</ion-label></p>
+        </ion-label>
+      </ion-item>
+      <!-- <div  (click)="itemTapped(item.id, item.title)">
+        <img  *ngIf=item.images [defaultImage]="'assets/imgs/default.png'" width="100%"  height="200px" [lazyLoad]="item.images[0].url" [scrollObservable]="container.ionScroll"/>
         <div class="card-title">{{item.title | limitTo: 60 }}</div>
         <div class="card-subtitle" *ngIf=item.location>{{item.location.name | limitTo: 40 }}</div>
-      </div>
+      </div> --> 
       <ion-list>
         <ion-button *ngFor="let label of item.labels" (click)="labelTapped(label)" shape="round" color="primary" fill="outline" item-left icon-left>
           <ion-icon name="albums"></ion-icon>
@@ -36,5 +44,5 @@
       </ion-item>
     </ion-card>
   </ion-virtual-scroll>
-
+</div>
 </ion-content>
