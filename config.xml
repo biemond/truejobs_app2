@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.india.truejobs" version="0.0.22" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.ionic.india.truejobs" version="0.0.23" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>TrueJobs India</name>
     <description>truejobs app.</description>
     <author email="biemond@gmail.com" href="http://www.truejobsindia.com/">Edwin Biemond</author>
@@ -21,6 +21,8 @@
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyCUhiIBzsuI2vzmxbJIkzBFpra3lshCrnk" />
+    <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyBl6SV_jY_sBFhw6EwXO-2l70GiXYBVe7k" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -95,7 +97,6 @@
     </plugin>
     <plugin name="cordova-plugin-google-analytics" spec="1.8.6" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.3.1" />
-    <engine name="ios" spec="4.5.5" />
     <engine name="browser" spec="5.0.4" />
     <engine name="android" spec="7.1.4" />
 </widget>

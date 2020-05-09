@@ -18,16 +18,6 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Select jobs based on Labels',
-      url: '/labels-overview',
-      icon: 'apps'
-    },
-    {
-      title: 'Notifications',
-      url: '/notifications',
-      icon: 'alarm'
-    },
-    {
       title: 'Contact',
       url: '/contact',
       icon: 'at'
